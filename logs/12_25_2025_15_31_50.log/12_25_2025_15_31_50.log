@@ -1,0 +1,34 @@
+[ 2025-12-25 15:31:57,686 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-12-25 15:31:57,686 ] 107 dagshub - INFO - Accessing as venkannachowdary2000
+[ 2025-12-25 15:31:58,675 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/venkannachowdary2000/mlopsproject "HTTP/1.1 200 OK"
+[ 2025-12-25 15:31:59,707 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2025-12-25 15:31:59,707 ] 107 dagshub - INFO - Initialized MLflow to track repo "venkannachowdary2000/mlopsproject"
+[ 2025-12-25 15:31:59,707 ] 107 dagshub - INFO - Repository venkannachowdary2000/mlopsproject initialized!
+[ 2025-12-25 15:31:59,707 ] 22 root - INFO - initiate data ingestion config
+[ 2025-12-25 15:31:59,734 ] 33 root - INFO - exporting the data from mongodb to the feature_store
+[ 2025-12-25 15:32:00,064 ] 35 root - INFO - connected to mongodb client: MongoClient(host=['ac-ukexc6j-shard-00-02.cqybkzu.mongodb.net:27017', 'ac-ukexc6j-shard-00-00.cqybkzu.mongodb.net:27017', 'ac-ukexc6j-shard-00-01.cqybkzu.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, retrywrites=True, w='majority', appname='Cluster0', authsource='admin', replicaset='atlas-nh1fg6-shard-0', tls=True)
+[ 2025-12-25 15:32:00,064 ] 38 root - INFO - fetching the data from database: NetworkSecurity andcollection: NetworkData
+[ 2025-12-25 15:32:03,948 ] 40 root - INFO - Data shape: (11055, 32)
+[ 2025-12-25 15:32:03,959 ] 43 root - INFO - Data shape after dropping _id column: (11055, 31)
+[ 2025-12-25 15:32:04,208 ] 47 root - INFO - Data saved to feature store: Artifacts\12_25_2025_15_31_53\data_ingestion\feature_store\PhisingData.csv
+[ 2025-12-25 15:32:04,212 ] 55 root - INFO - perform train test split on data
+[ 2025-12-25 15:32:04,456 ] 60 root - INFO - export to train and test file path: Artifacts\12_25_2025_15_31_53\data_ingestion\ingested\train.csv and Artifacts\12_25_2025_15_31_53\data_ingestion\ingested\test.csv
+[ 2025-12-25 15:32:04,457 ] 24 root - INFO - data ingestion completed successfully
+[ 2025-12-25 15:32:04,489 ] 28 root - INFO - initiate data validation config
+[ 2025-12-25 15:32:04,538 ] 33 root - INFO - required number of columns:2
+[ 2025-12-25 15:32:04,538 ] 34 root - INFO - Data frame has columns:31
+[ 2025-12-25 15:32:04,538 ] 33 root - INFO - required number of columns:2
+[ 2025-12-25 15:32:04,538 ] 34 root - INFO - Data frame has columns:31
+[ 2025-12-25 15:32:05,002 ] 33 root - INFO - initiate data transformation config
+[ 2025-12-25 15:32:05,002 ] 56 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2025-12-25 15:32:05,002 ] 58 root - INFO - starting data transformation
+[ 2025-12-25 15:32:05,067 ] 44 root - INFO - entered get_data_transformer_object method of transformation class
+[ 2025-12-25 15:32:05,067 ] 47 root - INFO - Initialize KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2025-12-25 15:32:05,095 ] 47 root - INFO - entered the save_object method of MainUtils class
+[ 2025-12-25 15:32:05,100 ] 51 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-12-25 15:32:05,102 ] 36 root - INFO - model training started
+[ 2025-12-25 15:38:06,113 ] 47 root - INFO - entered the save_object method of MainUtils class
+[ 2025-12-25 15:38:06,113 ] 51 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-12-25 15:38:06,113 ] 47 root - INFO - entered the save_object method of MainUtils class
+[ 2025-12-25 15:38:06,192 ] 51 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-12-25 15:38:06,192 ] 121 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\12_25_2025_15_31_53\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.990555499136793, precision_score=0.9902538071065989, recall_score=0.9908573750507924), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9778315195485692, precision_score=0.9735152487961477, recall_score=0.9821862348178138))
