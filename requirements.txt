@@ -9,5 +9,7 @@ mlflow
 pymongo[srv]==3.6
 pyaml
 dagshub
+fastapi
+uvicorn
 
 ##-e .
