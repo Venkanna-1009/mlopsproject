@@ -2,6 +2,8 @@ import sys
 import os
 
 import certifi
+
+from NetworkSecurity.utils.ml_utils.models.estimator import NetworkModel
 ca = certifi.where()
 
 from dotenv import load_dotenv
@@ -45,7 +47,7 @@ app.add_middleware(
 
 )
 
-templates = Jinja2Templates(directory="/.templates")
+templates = Jinja2Templates(directory="./templates")
 
 @app.get("/", tags=["authentication"]) 
 async def index():
@@ -60,14 +62,14 @@ async def train_route():
     except Exception as e:
         raise NetworkSecurityException(e, sys)
     
-@app.get("/predict")
+@app.post("/predict")
 async def predict_route(request:Request,file:UploadFile=File(...)):
     try:
         df = pd.read_csv(file.file)
         #print(df)
         preprocessor = load_object("final_model/preprocessor.pkl")
         final_model = load_object("final_model/model.pkl")
-        network_model = network_model(preprocessor=preprocessor,model=final_model)
+        network_model = NetworkModel(preprocessor=preprocessor,model=final_model)
         print(df.iloc[0])
         y_pred = network_model.predict(df)
         print(y_pred)
@@ -78,7 +80,7 @@ async def predict_route(request:Request,file:UploadFile=File(...)):
         df.to_csv("prediction_output/output.csv")
         table_html = df.to_html(classes="table table-striped")
         #print(table_html)
-        return templates.TemplateResponse("table_html", {"request": request, "table": table_html})
+        return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
     
     except Exception as e:
         raise NetworkSecurityException(e, sys)

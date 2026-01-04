@@ -1,0 +1,30 @@
+[ 2026-01-04 15:45:44,926 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-01-04 15:45:44,941 ] 107 dagshub - INFO - Accessing as venkannachowdary2000
+[ 2026-01-04 15:45:45,934 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/venkannachowdary2000/mlopsproject "HTTP/1.1 200 OK"
+[ 2026-01-04 15:45:47,000 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-01-04 15:45:47,015 ] 107 dagshub - INFO - Initialized MLflow to track repo "venkannachowdary2000/mlopsproject"
+[ 2026-01-04 15:45:47,015 ] 107 dagshub - INFO - Repository venkannachowdary2000/mlopsproject initialized!
+[ 2026-01-04 15:46:02,440 ] 39 root - INFO - start data ingestion
+[ 2026-01-04 15:46:02,440 ] 33 root - INFO - exporting the data from mongodb to the feature_store
+[ 2026-01-04 15:46:02,720 ] 35 root - INFO - connected to mongodb client: MongoClient(host=['ac-ukexc6j-shard-00-01.cqybkzu.mongodb.net:27017', 'ac-ukexc6j-shard-00-02.cqybkzu.mongodb.net:27017', 'ac-ukexc6j-shard-00-00.cqybkzu.mongodb.net:27017'], document_class=dict, tz_aware=False, connect=True, retrywrites=True, w='majority', appname='Cluster0', authsource='admin', replicaset='atlas-nh1fg6-shard-0', tls=True)
+[ 2026-01-04 15:46:02,720 ] 38 root - INFO - fetching the data from database: NetworkSecurity andcollection: NetworkData
+[ 2026-01-04 15:46:06,733 ] 40 root - INFO - Data shape: (11055, 32)
+[ 2026-01-04 15:46:06,741 ] 43 root - INFO - Data shape after dropping _id column: (11055, 31)
+[ 2026-01-04 15:46:06,862 ] 47 root - INFO - Data saved to feature store: Artifacts\01_04_2026_15_45_41\data_ingestion\feature_store\PhisingData.csv
+[ 2026-01-04 15:46:06,869 ] 55 root - INFO - perform train test split on data
+[ 2026-01-04 15:46:06,980 ] 60 root - INFO - export to train and test file path: Artifacts\01_04_2026_15_45_41\data_ingestion\ingested\train.csv and Artifacts\01_04_2026_15_45_41\data_ingestion\ingested\test.csv
+[ 2026-01-04 15:46:06,981 ] 42 root - INFO - data ingestion completed and artifact: {data_ingestion_artifact}
+[ 2026-01-04 15:46:06,993 ] 52 root - INFO - start data validation
+[ 2026-01-04 15:46:07,025 ] 33 root - INFO - required number of columns:2
+[ 2026-01-04 15:46:07,026 ] 34 root - INFO - Data frame has columns:31
+[ 2026-01-04 15:46:07,026 ] 33 root - INFO - required number of columns:2
+[ 2026-01-04 15:46:07,026 ] 34 root - INFO - Data frame has columns:31
+[ 2026-01-04 15:46:07,304 ] 62 root - INFO - start data transformation
+[ 2026-01-04 15:46:07,304 ] 56 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2026-01-04 15:46:07,304 ] 58 root - INFO - starting data transformation
+[ 2026-01-04 15:46:07,350 ] 44 root - INFO - entered get_data_transformer_object method of transformation class
+[ 2026-01-04 15:46:07,350 ] 47 root - INFO - Initialize KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2026-01-04 15:46:07,376 ] 47 root - INFO - entered the save_object method of MainUtils class
+[ 2026-01-04 15:46:07,381 ] 51 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-01-04 15:46:07,382 ] 47 root - INFO - entered the save_object method of MainUtils class
+[ 2026-01-04 15:46:07,386 ] 51 root - INFO - Exited the save_object method of MainUtils class
