@@ -3,12 +3,12 @@ name: workflow
 on:
    push:
       branches:
-        - main:
+        - main
       paths-ignore:
         - "README.md"
 
 jobs:
-   intergration:
+   integration:
       name: Continous Integration
       runs-on: ubuntu-latest
       steps:
