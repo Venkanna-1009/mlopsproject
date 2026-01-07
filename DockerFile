@@ -6,7 +6,7 @@ COPY . /app
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update --allow-releaseinfo-change \
+RUN apt update \
  && apt-get install -y --no-install-recommends ca-certificates curl unzip \
  && pip install --no-cache-dir --upgrade pip awscli \
  && rm -rf /var/lib/apt/lists/*
